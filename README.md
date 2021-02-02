@@ -18,9 +18,12 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 
 Install Docker:
 https://www.docker.com/
+
 Install PHP:
 https://www.php.net/
+
 Install Composer:
 https://getcomposer.org/
+
 Install Node.js:
 https://nodejs.org/en/
