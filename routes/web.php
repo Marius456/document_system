@@ -1,10 +1,9 @@
 <?php
- 
-// Route::get('{any}', function () {
-//     return view('app');
-// })->where('any', '.*');
 
-// Route::get('/', 'PostController@index');
-use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Route;
 
-Route::get('/', [PostController::class, 'create']);
+Route::get('/posts', 'PostController@test');
+
+Route::get('/', function () {
+    return view('welcome');
+});

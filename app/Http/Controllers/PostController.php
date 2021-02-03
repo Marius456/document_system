@@ -18,6 +18,11 @@ class PostController extends Controller
         $posts = Post::all()->toArray();
         return array_reverse($posts);
     }
+    
+    public function test(Request $request)
+    {
+        dd('fgg');
+    }
  
     // add post
     public function add(Request $request)
@@ -30,7 +35,7 @@ class PostController extends Controller
  
         return response()->json('The post successfully added');
     }
- 
+     
     // edit post
     public function edit($id)
     {
