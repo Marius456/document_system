@@ -21,7 +21,7 @@ error_reporting(E_ALL);
                 <!-- Sidebar menu -->
                 <?php require_once 'includes/sidebar.php'; ?>
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                    <h1 style="margin-top: 10px">DataTable</h1>
+                    <h1 style="margin-top: 20px">DataTable</h1>
 
 
                 </main>
