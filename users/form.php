@@ -4,7 +4,7 @@ ini_set('display_errors',1);
 ini_set('display_startup_erros',1);
 error_reporting(E_ALL);
 
-require_once 'classes/user.php';
+require_once '../classes/user.php';
 
 $objUser = new User();
 // GET
@@ -26,13 +26,13 @@ if(isset($_POST['btn_save'])){
   try{
      if($id != null){
        if($objUser->update($name, $email, $id)){
-         $objUser->redirect('index.php?updated');
+         $objUser->redirect('list.php?updated');
        }
      }else{
        if($objUser->insert($name, $email)){
-         $objUser->redirect('index.php?inserted');
+         $objUser->redirect('list.php?inserted');
        }else{
-         $objUser->redirect('index.php?error');
+         $objUser->redirect('list.php?error');
        }
      }
   }catch(PDOException $e){
@@ -45,15 +45,15 @@ if(isset($_POST['btn_save'])){
 <html lang="en">
     <head>
         <!-- Head metas, css, and title -->
-        <?php require_once 'includes/head.php'; ?>
+        <?php require_once '../includes/head.php'; ?>
     </head>
     <body>
         <!-- Header banner -->
-        <?php require_once 'includes/header.php'; ?>
+        <?php require_once '../includes/header.php'; ?>
         <div class="container-fluid">
             <div class="row">
                 <!-- Sidebar menu -->
-                <?php require_once 'includes/sidebar.php'; ?>
+                <?php require_once '../includes/sidebar.php'; ?>
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
                   <h1 style="margin-top: 10px">Add / Edit Users</h1>
                   <p>Required fields are in (*)</p>
@@ -76,6 +76,6 @@ if(isset($_POST['btn_save'])){
             </div>
         </div>
         <!-- Footer scripts, and functions -->
-        <?php require_once 'includes/footer.php'; ?>
+        <?php require_once '../includes/footer.php'; ?>
     </body>
 </html>

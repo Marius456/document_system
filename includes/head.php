@@ -3,10 +3,10 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>CRUD - ProgrammingKnowledge</title>
+<title>Dokument Maker</title>
 
 <!-- Bootstrap core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="http://localhost/api/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="css/dashboard.css" rel="stylesheet">
+<link href="http://localhost/api/css/dashboard.css" rel="stylesheet">

@@ -1,6 +1,6 @@
 <?php
 
-require_once 'database/database.php';
+require_once 'C:\xampp\htdocs\api\database\database.php';
 
 class User {
     private $conn;
