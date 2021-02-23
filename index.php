@@ -1,57 +1,45 @@
 <?php
-// Show PHP errors
-ini_set('display_errors',1);
-ini_set('display_startup_erros',1);
-error_reporting(E_ALL);
-
-require_once 'classes/user.php';
-
-$objUser = new User();
-
-// GET
-if(isset($_GET['delete_id'])){
-  $id = $_GET['delete_id'];
-  try{
-    if($id != null){
-      if($objUser->delete($id)){
-        $objUser->redirect('index.php?deleted');
-      }
-    }else{
-      var_dump($id);
-    }
-  }catch(PDOException $e){
-    echo $e->getMessage();
-  }
-}
-
+include("include/session.php");
 ?>
 <!doctype html>
 <html lang="en">
     <head>
         <!-- Head metas, css, and title -->
-        <?php require_once 'includes/head.php'; ?>
+        <?php require_once 'include/head.php'; ?>
     </head>
     <body>
         <!-- Header banner -->
-        <?php require_once 'includes/header.php'; ?>
+        <?php require_once 'include/header.php'; ?>
         <div class="container-fluid">
             <div class="row">
-                <!-- Sidebar menu -->
-                <?php require_once 'includes/sidebar.php'; ?>
-                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                    <h1 style="margin-top: 10px">Pradinis puslapis</h1>
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4"> 
+          <?php
+            //Jei vartotojas prisijungęs
+            if ($session->logged_in) {
+                require_once 'include/sidebar.php';
+                ?>
+                <div style="text-align:center">
+                    <br><br>
+                    <h1>Dokumentų valdymo sistema.</h1>
+					          <h1>Marius Žilgužis IFF-7/8</h1>
+                </div><br>
+                <?php
+                //Jei vartotojas neprisijungęs, rodoma prisijungimo forma
+                //Jei atsiranda klaidų, rodomi pranešimai.
+              } else {
+                  echo "<div align=\"center\">";
+                  if ($form->num_errors > 0) {
+                      echo "<font size=\"3\" color=\"#ff0000\">Klaidų: " . $form->num_errors . "</font>";
+                  }
+                  echo "<table class=\"center\"><tr><td>";
+                  include("user/loginForm.php");
+                  echo "</td></tr></table></div><br></td></tr>";
+              }
+            ?>
                 </main>
             </div>
         </div>
         <!-- Footer scripts, and functions -->
-        <?php require_once 'includes/footer.php'; ?>
-
-        <!-- Custom scripts -->
-        <script>
-            // JQuery confirmation
-            $('.confirmation').on('click', function () {
-                return confirm('Are you sure you want do delete this user?');
-            });
-        </script>
+        <?php require_once 'include/footer.php'; ?>
     </body>
 </html>

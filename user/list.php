@@ -29,15 +29,15 @@ if(isset($_GET['delete_id'])){
 <html lang="en">
     <head>
         <!-- Head metas, css, and title -->
-        <?php require_once '../includes/head.php'; ?>
+        <?php require_once '../include/head.php'; ?>
     </head>
     <body>
         <!-- Header banner -->
-        <?php require_once '../includes/header.php'; ?>
+        <?php require_once '../include/header.php'; ?>
         <div class="container-fluid">
             <div class="row">
                 <!-- Sidebar menu -->
-                <?php require_once '../includes/sidebar.php'; ?>
+                <?php require_once '../include/sidebar.php'; ?>
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
                     <h1 style="margin-top: 10px">Users</h1>
                     <a class="nav-link" href="form.php">
@@ -127,7 +127,7 @@ if(isset($_GET['delete_id'])){
             </div>
         </div>
         <!-- Footer scripts, and functions -->
-        <?php require_once '../includes/footer.php'; ?>
+        <?php require_once '../include/footer.php'; ?>
 
         <!-- Custom scripts -->
         <script>

@@ -46,15 +46,15 @@ if(isset($_POST['btn_save'])){
 <html lang="en">
     <head>
         <!-- Head metas, css, and title -->
-        <?php require_once '../includes/head.php'; ?>
+        <?php require_once '../include/head.php'; ?>
     </head>
     <body>
         <!-- Header banner -->
-        <?php require_once '../includes/header.php'; ?>
+        <?php require_once '../include/header.php'; ?>
         <div class="container-fluid">
             <div class="row">
                 <!-- Sidebar menu -->
-                <?php require_once '../includes/sidebar.php'; ?>
+                <?php require_once '../include/sidebar.php'; ?>
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
                   <h1 style="margin-top: 10px">Add / Edit Users</h1>
                   <p>Required fields are in (*)</p>
@@ -77,6 +77,6 @@ if(isset($_POST['btn_save'])){
             </div>
         </div>
         <!-- Footer scripts, and functions -->
-        <?php require_once '../includes/footer.php'; ?>
+        <?php require_once '../include/footer.php'; ?>
     </body>
 </html>
