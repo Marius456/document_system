@@ -22,14 +22,15 @@ if(isset($_GET['edit_id'])){
 if(isset($_POST['btn_save'])){
   $name   = strip_tags($_POST['name']);
   $email  = strip_tags($_POST['email']);
+  $password  = strip_tags($_POST['password']);
 
   try{
      if($id != null){
-       if($objUser->update($name, $email, $id)){
+       if($objUser->update($name, $email, $password, $id)){
          $objUser->redirect('list.php?updated');
        }
      }else{
-       if($objUser->insert($name, $email)){
+       if($objUser->insert($name, $email, $password)){
          $objUser->redirect('list.php?inserted');
        }else{
          $objUser->redirect('list.php?error');
@@ -59,16 +60,16 @@ if(isset($_POST['btn_save'])){
                   <p>Required fields are in (*)</p>
                   <form  method="post">
                     <div class="form-group">
-                        <label for="id">ID</label>
-                        <input class="form-control" type="text" name="id" id="id" value="<?php if($rowUser != null)print($rowUser['id']); ?>" readonly>
-                    </div>
-                    <div class="form-group">
                         <label for="name">Name *</label>
                         <input  class="form-control" type="text" name="name" id="name" placeholder="First Name and Last Name" value="<?php if($rowUser != null)print($rowUser['name']); ?>" required maxlength="100">
                     </div>
                     <div class="form-group">
                         <label for="email">Email *</label>
                         <input  class="form-control" type="text" name="email" id="email" placeholder="abcd@gmail.com" value="<?php if($rowUser != null)print($rowUser['email']); ?>" required maxlength="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Password *</label>
+                        <input  class="form-control" type="text" name="password" id="password" placeholder="qwerty123" value="<?php if($rowUser != null)print($rowUser['password']); ?>" required maxlength="100">
                     </div>
                     <input class="btn btn-primary mb-2" type="submit" name="btn_save" value="Save">
                   </form>

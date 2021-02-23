@@ -82,6 +82,7 @@ if(isset($_GET['delete_id'])){
                                 <th>#</th>
                                 <th>Full Name</th>
                                 <th>Email</th>
+                                <th>Password</th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -97,14 +98,16 @@ if(isset($_GET['delete_id'])){
                                  <tr>
                                     <td><?php print($rowUser['id']); ?></td>
 
-                                    <td>
-                                      <a href="form.php?edit_id=<?php print($rowUser['id']); ?>">
-                                      <?php print($rowUser['name']); ?>
-                                      </a>
-                                    </td>
+                                    <td><?php print($rowUser['name']); ?></td>
 
                                     <td><?php print($rowUser['email']); ?></td>
+                                    <td><?php print($rowUser['password']); ?></td>
 
+                                    <td>
+                                      <a href="form.php?edit_id=<?php print($rowUser['id']); ?>">
+                                      <span data-feather="edit-3"></span>
+                                      </a>
+                                    </td>
                                     <td>
                                       <a class="confirmation" href="list.php?delete_id=<?php print($rowUser['id']); ?>">
                                       <span data-feather="trash"></span>

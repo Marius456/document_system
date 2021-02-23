@@ -20,11 +20,12 @@ class User {
     }
 
     // Insert
-    public function insert($name, $email){
+    public function insert($name, $email, $password){
       try{
-        $stmt = $this->conn->prepare("INSERT INTO users (name, email) VALUES(:name, :email)");
+        $stmt = $this->conn->prepare("INSERT INTO users (name, email, password) VALUES(:name, :email, :password)");
         $stmt->bindparam(":name", $name);
         $stmt->bindparam(":email", $email);
+        $stmt->bindparam(":password", $password);
         $stmt->execute();
         return $stmt;
       }catch(PDOException $e){
@@ -34,11 +35,12 @@ class User {
 
 
     // Update
-    public function update($name, $email, $id){
+    public function update($name, $email, $password, $id){
         try{
-          $stmt = $this->conn->prepare("UPDATE users SET name = :name, email = :email WHERE id = :id");
+          $stmt = $this->conn->prepare("UPDATE users SET name = :name, email = :email, password = :password WHERE id = :id");
           $stmt->bindparam(":name", $name);
           $stmt->bindparam(":email", $email);
+          $stmt->bindparam(":password", $password);
           $stmt->bindparam(":id", $id);
           $stmt->execute();
           return $stmt;
